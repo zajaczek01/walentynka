@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentykowy Bug</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fce4ec;
+        }
+        h1 {
+            color: #d81b60;
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+        #buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: #d81b60;
+            color: white;
+        }
+        #no {
+            background-color: #757575;
+            color: white;
+            position: absolute;
+        }
+        #hearts {
+            display: none;
+            font-size: 40px;
+            margin-top: 20px;
+            animation: float 2s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 16px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Error 404: Julka nie znaleziona</h1>
+    <p>Julka, czy chcesz zostać moją walentynką i dołączyć do życia Kuby?</p>
+    <div id="buttons">
+        <button id="yes" onclick="showHearts()">Tak</button>
+        <button id="no" onmouseover="moveNo()">Nie</button>
+    </div>
+    <div id="hearts">❤️❤️❤️ Julka + Kuba ❤️❤️❤️</div>
+    <script>
+        function moveNo() {
+            let btn = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
+        }
+        function showHearts() {
+            document.getElementById("hearts").style.display = "block";
+        }
+    </script>
+</body>
+</html>
